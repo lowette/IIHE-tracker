@@ -18,7 +18,7 @@
 #include "MagneticField/Engine/interface/MagneticField.h"
 #include "Geometry/Records/interface/StackedTrackerGeometryRecord.h"
 #include "Geometry/TrackerGeometryBuilder/interface/StackedTrackerGeometry.h"
-#include "Geometry/TrackerGeometryBuilder/interface/StackedTrackerDetUnit.h"
+//#include "Geometry/TrackerGeometryBuilder/interface/StackedTrackerDetUnit.h"
 #include "SimDataFormats/SLHC/interface/StackedTrackerTypes.h"
 #include "CommonTools/UtilAlgos/interface/TFileService.h"
 
@@ -99,10 +99,12 @@ void ReadPixClusters_DifferentGeometry::analyze(const edm::Event& e, const edm::
   using namespace edm;
 
   /// Geometry handles etc
-  edm::ESHandle< TrackerGeometry >                GeometryHandle;
+  //edm::ESHandle< TrackerGeometry >                GeometryHandle;
   edm::ESHandle< StackedTrackerGeometry >         StackedGeometryHandle;
   const StackedTrackerGeometry*                   theStackedGeometry;
-  StackedTrackerGeometry::StackContainerIterator  StackedTrackerIterator;
+  es.get< StackedTrackerGeometryRecord >().get(StackedGeometryHandle);
+  theStackedGeometry = StackedGeometryHandle.product();
+  //StackedTrackerGeometry::StackContainerIterator  StackedTrackerIterator;
   // Get event setup 
   //edm::ESHandle<TrackerGeometry> geom;
   //es.get<TrackerDigiGeometryRecord>().get( geom );
