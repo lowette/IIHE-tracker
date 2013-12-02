@@ -102,8 +102,6 @@ void ReadPixClusters_DifferentGeometry::analyze(const edm::Event& e, const edm::
   //edm::ESHandle< TrackerGeometry >                GeometryHandle;
   edm::ESHandle< StackedTrackerGeometry >         StackedGeometryHandle;
   const StackedTrackerGeometry*                   theStackedGeometry;
-  es.get< StackedTrackerGeometryRecord >().get(StackedGeometryHandle);
-  theStackedGeometry = StackedGeometryHandle.product();
   //StackedTrackerGeometry::StackContainerIterator  StackedTrackerIterator;
   // Get event setup 
   //edm::ESHandle<TrackerGeometry> geom;
@@ -113,7 +111,7 @@ void ReadPixClusters_DifferentGeometry::analyze(const edm::Event& e, const edm::
 
   /// Geometry setup
   /// Set pointers to Geometry
-  es.get< TrackerDigiGeometryRecord >().get(GeometryHandle);
+  //es.get< TrackerDigiGeometryRecord >().get(GeometryHandle);
   /// Set pointers to Stacked Modules
   es.get< StackedTrackerGeometryRecord >().get(StackedGeometryHandle);
   theStackedGeometry = StackedGeometryHandle.product(); /// Note this is different 
